@@ -1,8 +1,7 @@
-import java.util.Scanner;
+import java.util.*;
 
 interface IMathOperation {
-    float PI = 3.1416f;
-
+    double PI = 3.1416;
     void calculate();
     void showInfo();
 }
@@ -25,9 +24,8 @@ class Addition implements IMathOperation {
     @Override
     public void showInfo() {
         calculate();
-        System.out.printf("%s\n", "Addition");
+        System.out.println("Lớp: Addition");
         System.out.printf("%.2f + %.2f = %.2f\n", operand1, operand2, result);
-        System.out.println();
     }
 }
 
@@ -49,9 +47,8 @@ class Subtraction implements IMathOperation {
     @Override
     public void showInfo() {
         calculate();
-        System.out.printf("%s\n", "Subtraction");
+        System.out.println("Lớp: Subtraction");
         System.out.printf("%.2f - %.2f = %.2f\n", operand1, operand2, result);
-        System.out.println();
     }
 }
 
@@ -73,34 +70,28 @@ class Multiplication implements IMathOperation {
     @Override
     public void showInfo() {
         calculate();
-        System.out.printf("%s\n", "Multiplication");
+        System.out.println("Lớp: Multiplication");
         System.out.printf("%.2f * %.2f = %.2f\n", operand1, operand2, result);
-        System.out.println();
     }
 }
 
-public class Bai1 {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Nhập 6 số thực
-        float add1 = sc.nextFloat();
-        float add2 = sc.nextFloat();
-        float sub1 = sc.nextFloat();
-        float sub2 = sc.nextFloat();
-        float mul1 = sc.nextFloat();
-        float mul2 = sc.nextFloat();
+        float a1 = sc.nextFloat();
+        float a2 = sc.nextFloat();
+        float s1 = sc.nextFloat();
+        float s2 = sc.nextFloat();
+        float m1 = sc.nextFloat();
+        float m2 = sc.nextFloat();
 
-        // Tạo đối tượng
-        Addition add = new Addition(add1, add2);
-        Subtraction sub = new Subtraction(sub1, sub2);
-        Multiplication mul = new Multiplication(mul1, mul2);
+        Addition add = new Addition(a1, a2);
+        Subtraction sub = new Subtraction(s1, s2);
+        Multiplication mul = new Multiplication(m1, m2);
 
-        // Hiển thị
         add.showInfo();
         sub.showInfo();
         mul.showInfo();
-
-        sc.close();
     }
 }
